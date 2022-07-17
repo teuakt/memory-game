@@ -1,0 +1,285 @@
+@import "css/_reset.scss";
+
+body {
+    @include flex();
+    background-color: $lightGray;
+    background-image: url("./assets/background.jpg");
+    background-position: center;
+    background-size: cover;
+    max-width: 100vw;
+    width: 100%;
+    height: 100vh;
+}
+
+@keyframes win-screen-background {
+    0% {
+        box-shadow: inset 0 0 0, 0 0 5px $white;
+    }
+    100% {
+        box-shadow: inset 0 0 5px $black;
+    }
+}
+
+.login {
+    @include flex();
+    max-width: 500px;
+    width: 100%;
+    height: 50%;
+    background-color: $white;
+    padding: 50px 20px 70px;
+    border: 5px double $darkGray;
+    border-radius: 8px;
+    @media (max-height: 550px) {
+        padding: 25px 10px 35px;
+        height: 80%;
+    }
+    @include media-mobile() {
+        width: 80%;
+    }
+    &__header {
+        @include flex();
+        width: 80%;
+        &-img {
+            height: 100px;
+            filter: saturate(1.2);
+        }
+    }
+    &__header-title--div {
+        height: 25px;
+        @media (max-width: 500px) {
+            height: 50px;
+            width: 65%;
+        }
+    }
+    &__header-title--text {
+        color: $darkGray;
+        font-size: 1.6em;
+        text-align: center;
+        margin-top: 15px;
+        width: 100%;
+        @include media-mobile() {
+            font-size: 1.4em;
+        }
+    }
+    &__input {
+        margin-top: 75px;
+        height: 40px;
+        border-radius: 8px;
+        width: 80%;
+        border: 2px solid darken($lightGray, 30%);
+        outline: none;
+        text-align: center;
+        font-size: 1em;
+        transition: 0.7s;
+        &::placeholder {
+            transition: 0.7s;
+        }
+        &:focus {
+            box-shadow: 0px 0px 4px $darkGray;
+            transition: 0.7s;
+            &::placeholder {
+                opacity: 0.2;
+                transition: 0.7s;
+            }
+        }
+        @include media-mobile() {
+            height: 50px;
+            font-size: 0.8em;
+        }
+    }
+    &__button {
+        margin-top: 30px;
+        height: 60px;
+        width: 50%;
+        border-radius: 8px;
+        background-color: $buttonRed;
+        color: $white;
+        border: 1px solid darken($color: $buttonRed, $amount: 20%);
+        text-transform: uppercase;
+        box-shadow: 2px 2px 2px $darkGray;
+        transition: 0.3s;
+        cursor: pointer;
+        &:active {
+            box-shadow: none;
+            transform: translate(2px, 2px);
+
+        }
+        &:hover {
+            filter: brightness(110%);
+        }
+        &:disabled {
+            filter: saturate(0.2);
+            box-shadow: none;
+            border: transparent;
+            cursor: auto;
+            color: $lightGray;
+            transition: 0.3s;
+            transform: translate(2px, 2px);
+        }
+
+        @include media-mobile() {
+            width: 70%;
+            height: 50px;
+            font-size: 0.8em;
+        }
+    }
+}
+
+.game {
+    @include flex();
+    width: 100%;
+    max-width: 805px;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    @include media-mobile() {
+        justify-content: flex-start;
+    }
+    @media (max-height: 800px) {
+        max-width: 100%;
+        justify-content: flex-start;
+
+    }
+    &__header {
+        width: 100%;
+        @include flex(space-between, center, row);
+        background-color: rgba(255, 255, 255, 0.5);
+        height: 40px;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    &__win-screen {
+        position: absolute;
+        @include flex(space-between);
+        padding: 20px 10px;
+        width: 50%;
+        height: 300px;
+        background: $white;
+        box-sizing: border-box;
+        border: 5px double $darkGray;
+        border-radius: 8px;
+        color: $darkGray;
+        opacity: 1;
+        transition: 400ms;
+        animation-name: win-screen-background;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+        display: none;
+        @include media-mobile() {
+            top: 20%;
+            width: 70%;
+            height: 350px;
+        }
+        @media (max-height: 800px) {
+            top: 20%;
+            height: 350px;
+        }
+        &--strong {
+            color: $buttonRed;
+            text-align: center;
+            font-size: 1em;
+            line-height: 150%;
+        }
+        &-double-div {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            &--div {
+                @include flex(center, center, column);
+                width: 48%;
+                height: 100%;
+                margin: 5px 0 0 0;
+                background-color: lighten($lightGray, 15%);
+                border: 1px solid $gold;
+
+
+            }
+        }
+        &--span {
+            font-size: 0.65em;
+            text-size-adjust: 35px;
+            margin-top: 0;
+            line-height: 150%;
+            margin-bottom: 5px;
+
+            &:first-child {
+                text-align: center;
+                color: $darkGray;
+                width: 38%;
+                font-weight: bold;
+            }
+            &:last-child {
+                text-align: center;
+                color: darken($gold, 10%);
+                width: 38%;
+                text-shadow: 0 0 0px black;
+            }
+        }
+        &--button {
+            width: 70%;
+            margin-top: 0;
+        }
+    }
+}
+
+.game__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    @include media-mobile() {
+        margin-top: 50px;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    @media (max-height: 800px) {
+        grid-template-columns: repeat(7, 1fr);
+        max-width: 1000px;
+    }
+    &-card {
+        @include flex();
+        aspect-ratio: 3/4;
+        width: 100%;
+        background-color: $lightGray;
+        border-radius: 5px;
+        position: relative;
+        transition: all 400ms ease;
+        transform-style: preserve-3d;
+        border: 2px solid $darkGray;
+        &--face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 5px;
+            background-size: 40%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 400ms ease;
+        }
+        &--front {
+            transform: rotateY(180deg);
+        }
+        &--back {
+            background-image: url("./assets/backcard.jpg");
+            box-shadow: inset 0 0 10px darken($darkGray, 20%);
+            backface-visibility: hidden;
+            background-size: cover;
+        }
+    }
+}
+
+.reveal-card {
+    transform: rotateY(180deg);
+}
+
+.disabled-card {
+    filter: saturate(0);
+    opacity: 0.5;
+}
+

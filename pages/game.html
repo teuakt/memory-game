@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Jogo da Memória</title>
+
+    <script defer src="../js/script.js"></script>
+  </head>
+  <body>
+    <section class="game">
+      <header class="game__header">
+        <span class="game__header-player"></span>
+        <span class="game__header-time-text">Tempo: <span class="game__header-time-timer">0</span></span>
+      </header>
+      <div class="game__grid"></div>
+      <div class="game__win-screen">
+        <strong class="game__win-screen--strong"></strong>
+        <div class="game__win-screen-double-div">
+          <div class="game__win-screen-double-div--div">
+            <span class="game__win-screen--span">Tempo atual: </span>
+            <span class="game__win-screen--span time"></span>
+          </div>
+          <div class="game__win-screen-double-div--div">
+            <span class="game__win-screen--span">Melhor tempo: </span>
+            <span class="game__win-screen--span record"></span>
+          </div>
+        </div>
+        <span class="game__win-screen--span">Deseja jogar novamente?</span>
+        <button class="game__win-screen--button login__button">Jogar Novamente</button>
+      </div>
+    </section>
+  </body>
+</html>
