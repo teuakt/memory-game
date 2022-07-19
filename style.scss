@@ -29,7 +29,7 @@ body {
     padding: 50px 20px 70px;
     border: 5px double $darkGray;
     border-radius: 8px;
-    @media (max-height: 550px) {
+    @media (max-height: 700px) {
         padding: 25px 10px 35px;
         height: 80%;
     }
@@ -46,10 +46,6 @@ body {
     }
     &__header-title--div {
         height: 25px;
-        @media (max-width: 500px) {
-            height: 50px;
-            width: 65%;
-        }
     }
     &__header-title--text {
         color: $darkGray;
@@ -102,7 +98,6 @@ body {
         &:active {
             box-shadow: none;
             transform: translate(2px, 2px);
-
         }
         &:hover {
             filter: brightness(110%);
@@ -134,17 +129,17 @@ body {
     position: relative;
     @include media-mobile() {
         justify-content: flex-start;
+        @media (max-height: 800px) {
+            max-width: 100%;
+            justify-content: flex-start;
+        }
     }
-    @media (max-height: 800px) {
-        max-width: 100%;
-        justify-content: flex-start;
 
-    }
     &__header {
         width: 100%;
         @include flex(space-between, center, row);
         background-color: rgba(255, 255, 255, 0.5);
-        height: 40px;
+        height: 5%;
         padding: 0 10px;
         box-sizing: border-box;
     }
@@ -193,8 +188,6 @@ body {
                 margin: 5px 0 0 0;
                 background-color: lighten($lightGray, 15%);
                 border: 1px solid $gold;
-
-
             }
         }
         &--span {
@@ -232,16 +225,28 @@ body {
     max-width: 800px;
     margin: 0 auto;
     margin-top: 20px;
+    @media (max-height: 800px) {
+        grid-template-columns: repeat(7, 1fr);
+        max-width: 1000px;
+    }
     @include media-mobile() {
         margin-top: 50px;
         grid-template-columns: repeat(4, 1fr);
         padding: 0 10px;
         box-sizing: border-box;
+        @media (max-height: 800px) {
+            margin-top: 20px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @media (min-height: 850px) {
+            @media (max-height: 1000px) {
+            margin-top: 20px;
+            grid-template-columns: repeat(5, 1fr);
+            }
+        }
     }
-    @media (max-height: 800px) {
-        grid-template-columns: repeat(7, 1fr);
-        max-width: 1000px;
-    }
+
+
     &-card {
         @include flex();
         aspect-ratio: 3/4;
@@ -282,4 +287,3 @@ body {
     filter: saturate(0);
     opacity: 0.5;
 }
-

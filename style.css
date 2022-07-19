@@ -127,7 +127,7 @@ body {
   border-radius: 8px;
 }
 
-@media (max-height: 550px) {
+@media (max-height: 700px) {
   .login {
     padding: 25px 10px 35px;
     height: 80%;
@@ -165,13 +165,6 @@ body {
 
 .login__header-title--div {
   height: 25px;
-}
-
-@media (max-width: 500px) {
-  .login__header-title--div {
-    height: 50px;
-    width: 65%;
-  }
 }
 
 .login__header-title--text {
@@ -338,7 +331,7 @@ body {
   }
 }
 
-@media (max-height: 800px) {
+@media (max-width: 1024px) and (max-height: 800px) {
   .game {
     max-width: 100%;
     -webkit-box-pack: start;
@@ -363,7 +356,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background-color: rgba(255, 255, 255, 0.5);
-  height: 40px;
+  height: 5%;
   padding: 0 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -503,6 +496,14 @@ body {
   margin-top: 20px;
 }
 
+@media (max-height: 800px) {
+  .game__grid {
+    -ms-grid-columns: (1fr)[7];
+        grid-template-columns: repeat(7, 1fr);
+    max-width: 1000px;
+  }
+}
+
 @media (max-width: 1024px) {
   .game__grid {
     margin-top: 50px;
@@ -514,11 +515,19 @@ body {
   }
 }
 
-@media (max-height: 800px) {
+@media (max-width: 1024px) and (max-height: 800px) {
   .game__grid {
-    -ms-grid-columns: (1fr)[7];
-        grid-template-columns: repeat(7, 1fr);
-    max-width: 1000px;
+    margin-top: 20px;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) and (min-height: 850px) and (max-height: 1000px) {
+  .game__grid {
+    margin-top: 20px;
+    -ms-grid-columns: (1fr)[5];
+        grid-template-columns: repeat(5, 1fr);
   }
 }
 
