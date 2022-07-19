@@ -40,7 +40,6 @@ const printWinScreen = () => {
   $restartButton.addEventListener('click', () => {
     window.location = '../index.html'
   })
-  
 }
 
 const checkRecord = () => {
