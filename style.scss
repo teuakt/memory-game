@@ -158,7 +158,6 @@ body {
         animation-iteration-count: infinite;
         animation-timing-function: linear;
         animation-direction: alternate;
-        display: none;
         @include media-mobile() {
             font-size: 1em;
             width: 70%;

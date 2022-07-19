@@ -388,7 +388,6 @@ body {
           animation-timing-function: linear;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  display: none;
 }
 
 @media (max-width: 1024px) {
